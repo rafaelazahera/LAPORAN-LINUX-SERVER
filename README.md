@@ -1,9 +1,9 @@
 # LAPORAN REMOTE LINUX SERVER 
-**NAMA** = RAFAELA ZAHERA VRIODONA <BR>
-**NIM** = 09011282328094<BR>
-**KELAS** = SK3A <BR>
-**MATA KULIAH** = SISTEM OPERASI <BR>
-**DOSEN PENGAMPU** = Adi Hermansyah, S.Kom., M.T.
+- **NAMA** = RAFAELA ZAHERA VRIODONA <BR>
+- **NIM** = 09011282328094<BR>
+- **KELAS** = SK3A <BR>
+- **MATA KULIAH** = SISTEM OPERASI <BR>
+- **DOSEN PENGAMPU** = Adi Hermansyah, S.Kom., M.T.
  ## 1. INSTALASI UBUNTU SERVER <BR>
  Pertama-tama saya menginstall Ubuntu Server pada VirtualBox ![image](https://github.com/user-attachments/assets/66f53c95-b6ff-4db1-bba4-483a288185f1)
 
@@ -22,9 +22,30 @@ Perintah ini akan memperbarui daftar paket dan menginstal OpenSSH Server, memung
 *sudo systemctl start ssh*
  ![WhatsApp Image 2024-10-30 at 20 14 49_22f2df1a](https://github.com/user-attachments/assets/6bd94e83-b79d-4f6a-bd72-3e4b2e89a3a5)
 Perintah ini memastikan bahwa SSH akan aktif saat server booting. Dengan pengaturan ini, pengelolaan server menjadi lebih mudah dan akses tetap tersedia kapan saja.
-### Melihay status layanan SSH
+### Melihat status layanan SSH
 *sudo systemctl status ssh*
  ![WhatsApp Image 2024-10-30 at 20 14 49_22f2df1a](https://github.com/user-attachments/assets/6bd94e83-b79d-4f6a-bd72-3e4b2e89a3a5)
 Perintah ini akan menampilkan status layanan SSH, memberikan informasi apakah layanan tersebut aktif dan berjalan tanpa masalah. Jika semuanya berjalan lancar, akan ada keterangan bahwa layanan sedang aktif dan siap menerima koneksi.
+### Mengubah Port SSH Menjadi Port 40
+Untuk mengubah port SSH, buka file konfigurasi sshd_config dan ubah port menjadi 40 dengan cara berikut:<br>
+
+Gunakan editor teks seperti nano untuk membuka file konfigurasi: <br>
+
+*sudo nano /etc/ssh/sshd_config*<br>
+dibagian port #Port 22, dibuah menjadi Port 40, setelah itu disimpan dan enter.
+- Linux Server
+![WhatsApp Image 2024-10-30 at 20 17 22_5365f47d](https://github.com/user-attachments/assets/e5e0c56f-64bc-48af-8be2-c19a3f87b2a2)<br>
+- Linux Dekstop
+<img width="599" alt="image" src="https://github.com/user-attachments/assets/221f089e-2138-413b-be49-3e771a3f0da6"><br>
+
+### Restart SSH
+
+Setelah melakukan perubahan pada port SSH, langkah selanjutnya adalah merestart layanan SSH agar konfigurasi baru dapat diterapkan. Untuk melakukannya, gunakan perintah berikut:<br>
+*sudo systemctl restart ssh*
+![WhatsApp Image 2024-10-30 at 20 41 43_f78ff1a0](https://github.com/user-attachments/assets/050da68a-b3c8-46e0-9660-b4bf85a78f66)
+Dengan perintah ini, layanan SSH akan dimulai ulang, dan perubahan yang telah dibuat pada port akan mulai berlaku. Ini memastikan bahwa koneksi ke server menggunakan port baru yang telah ditentukan.
+## KESIMPULAN LAPORAN
+Dari percobaan ini, dapat disimpulkan bahwa instalasi dan konfigurasi SSH Server pada Ubuntu Server melalui VirtualBox telah berhasil. Proses ini mencakup instalasi Ubuntu Server dan OpenSSH Server, serta perubahan port SSH dari 22 menjadi 40 untuk meningkatkan keamanan, dan semua langkah tersebut berjalan dengan baik. Koneksi remote dari Linux Desktop juga berhasil dilakukan setelah port baru dikonfigurasi dan perintah yang diperlukan dijalankan dengan benar. Proses ini memberikan pemahaman yang jelas tentang pengaturan SSH untuk akses jarak jauh di server dan menekankan pentingnya aspek keamanan dalam administrasi server jarak jauh.
+
 
 
